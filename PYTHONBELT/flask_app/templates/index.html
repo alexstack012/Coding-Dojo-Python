@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: lightgray;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Log in</title>
+</head>
+
+<body style="background-color: lightgray;">
+    <div class="container">
+        <div class="row">
+            {% with messages = get_flashed_messages() %}
+            <!-- declare a variable called messages -->
+            {% if messages %}
+            <!-- check if there are any messages -->
+            {% for message in messages %}
+            <!-- loop through the messages -->
+            <p class="text-danger">{{message}}</p> <!-- display each message in a paragraph tag -->
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="col">
+                <h1>Registration</h1>
+                <form class="form-control" action="/register" method="POST"
+                    style="display: table-caption; background-color: lightgray;">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input class="form-group" type="text" name="first_name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input class="form-group" type="text" name="last_name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-group" type="text" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-group" type="password" name="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input class="form-group" type="password" name="conf_pass">
+                    </div>
+                    <input type="submit" class="btn btn-dark" value="Register">
+                </form>
+            </div>
+            <!--end of REGISTRATION and START of login-->
+            <div class="col">
+                <h1>Login</h1>
+                <form class="form-control" action="/login" method="POST"
+                    style="display: table-caption; background-color: lightgray;">
+                    <div class=" form-group">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-group" type="text" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input class="form-group" type="password" name="password">
+                        </div>
+                        <input type="submit" class="btn btn-dark" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
